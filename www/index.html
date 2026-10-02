@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no,viewport-fit=cover">
+<title>Highway Rush</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<canvas id="game"></canvas>
+<div id="ui">
+  <button id="btnPause" class="hidden" data-act="pause" aria-label="Pause">II</button>
+  <div id="touch" class="hidden">
+    <div class="tgroup"><button class="tbtn" data-key="TL">LEFT</button><button class="tbtn" data-key="TR">RIGHT</button></div>
+    <div class="tgroup"><button class="tbtn" data-key="TB">BRAKE</button><button class="tbtn nitro" data-key="TN">NITRO</button></div>
+  </div>
+
+  <section id="menu" class="screen">
+    <h1>HIGHWAY<br>RUSH</h1>
+    <div class="stats"><span>CASH <b id="mCash">$0</b></span><span>BEST DISTANCE <b id="mBest">0 m</b></span></div>
+    <div class="stack">
+      <button class="btn primary" data-act="play">PLAY</button>
+      <button class="btn" data-act="garage">GARAGE</button>
+      <button class="btn" data-act="missions">MISSIONS</button>
+      <button class="btn" data-act="settings">SETTINGS</button>
+    </div>
+    <p class="hint">A/D or arrows: change lane &middot; W: gas &middot; S: brake &middot; Space: nitro &middot; P: pause</p>
+  </section>
+
+  <section id="garage" class="screen wide">
+    <header><button class="btn small" data-act="menu">BACK</button><h2>GARAGE</h2><span class="cash" id="gCash">$0</span></header>
+    <div class="gcols">
+      <div class="panel preview">
+        <canvas id="garageCanvas"></canvas>
+        <div class="selector"><button class="btn small" data-act="prevBike">&lsaquo;</button><strong id="gName"></strong><button class="btn small" data-act="nextBike">&rsaquo;</button></div>
+      </div>
+      <div class="panel">
+        <div id="gStats"></div>
+        <button class="btn primary" id="gAction" data-act="bikeAction"></button>
+        <h3>Upgrades</h3>
+        <div id="gUpg"></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="missions" class="screen">
+    <header><button class="btn small" data-act="menu">BACK</button><h2>MISSIONS</h2><span></span></header>
+    <div class="panel" id="mList"></div>
+  </section>
+
+  <section id="settings" class="screen">
+    <header><button class="btn small" data-act="menu">BACK</button><h2>SETTINGS</h2><span></span></header>
+    <div class="panel stack">
+      <button class="btn" id="setSound" data-act="toggleSound"></button>
+      <button class="btn" id="setMusic" data-act="toggleMusic"></button>
+      <button class="btn danger" data-act="reset">RESET PROGRESS</button>
+    </div>
+  </section>
+
+  <section id="pause" class="screen">
+    <h2>GAME PAUSED</h2>
+    <div class="stack">
+      <button class="btn primary" data-act="resume">RESUME</button>
+      <button class="btn" data-act="restart">RESTART</button>
+      <button class="btn" data-act="menu">MAIN MENU</button>
+    </div>
+  </section>
+
+  <section id="results" class="screen">
+    <h2>RACE COMPLETE</h2>
+    <div class="panel res">
+      <div><span>DISTANCE</span><b id="rDist"></b></div>
+      <div><span>TOP SPEED</span><b id="rTop"></b></div>
+      <div><span>NEAR MISSES</span><b id="rNear"></b></div>
+      <div><span>CASH EARNED</span><b id="rCash"></b></div>
+      <div><span>TOTAL CASH</span><b id="rTotal"></b></div>
+    </div>
+    <div class="stack">
+      <button class="btn primary" data-act="play">RACE AGAIN</button>
+      <button class="btn" data-act="garage">GARAGE</button>
+      <button class="btn" data-act="menu">MAIN MENU</button>
+    </div>
+  </section>
+
+  <section id="confirm" class="screen dim">
+    <div class="panel stack">
+      <h3>Delete all progress?</h3>
+      <p>Cash, bikes, upgrades and missions will be erased.</p>
+      <button class="btn danger" data-act="confirmReset">YES, DELETE</button>
+      <button class="btn" data-act="settings">CANCEL</button>
+    </div>
+  </section>
+</div>
+<script src="game.js"></script>
+</body>
+</html>

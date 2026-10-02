@@ -1,0 +1,12 @@
+{
+  "appId": "com.highwayrush.game",
+  "appName": "Highway Rush",
+  "webDir": "www",
+  "android": {
+    "allowMixedContent": false,
+    "backgroundColor": "#05060f"
+  },
+  "server": {
+    "androidScheme": "https"
+  }
+}

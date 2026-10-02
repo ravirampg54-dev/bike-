@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">Highway Rush</string>
+    <string name="title_activity_main">Highway Rush</string>
+    <string name="package_name">com.highwayrush.game</string>
+    <string name="custom_url_scheme">com.highwayrush.game</string>
+</resources>

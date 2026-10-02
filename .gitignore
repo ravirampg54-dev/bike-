@@ -1,0 +1,20 @@
+# Dependencies
+node_modules/
+
+# Android/Gradle specifics are handled by android/.gitignore
+# (keep android/gradle/wrapper committed so the build works for everyone)
+
+# IDE
+.idea/
+*.iml
+*.hprof
+.vscode/
+
+# Logs
+*.log
+npm-debug.log*
+
+# OS files
+.DS_Store
+Thumbs.db
+desktop.ini
